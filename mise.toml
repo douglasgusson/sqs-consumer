@@ -1,0 +1,14 @@
+[tools]
+go = "1.27.1"
+
+[tasks.build]
+description = "Compila o binário do sqs-consumer na pasta bin/"
+run = "go build -o bin/sqs-consumer ./cmd/sqs-consumer"
+
+[tasks.test]
+description = "Roda os testes do projeto"
+run = "go test -race ./..."
+
+[tasks.vet]
+description = "Roda a análise estática (go vet)"
+run = "go vet ./..."

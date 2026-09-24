@@ -14,6 +14,7 @@ Uma CLI desenvolvida em Go para consumir mensagens de uma fila SQS (otimizada pa
 - [Go](https://go.dev/) 1.22 ou superior
 - [Docker](https://www.docker.com/) (para rodar o LocalStack)
 - AWS CLI (`aws-cli`) configurada com o utilitário [`awslocal`](https://github.com/localstack/awscli-local) (opcional, porém recomendado para gerenciar as filas locais).
+- [mise](https://mise.jdx.dev/) (opcional, recomendado para padronização de ambiente e execução de tarefas).
 
 ## Estrutura do Projeto
 
@@ -25,7 +26,9 @@ O projeto adota a estrutura base de pacotes de mercado (padrão `project-layout`
 
 ## Compilação
 
-Para compilar o binário do consumidor:
+Você pode compilar o projeto da forma tradicional ou utilizando o gerenciador de tarefas `mise`.
+
+### Forma tradicional (Go CLI)
 
 ```bash
 # Baixar dependências
@@ -33,6 +36,21 @@ go mod tidy
 
 # Gerar o binário na pasta bin/
 go build -o bin/sqs-consumer ./cmd/sqs-consumer
+```
+
+### Usando o `mise` (Recomendado)
+
+O projeto possui um arquivo `mise.toml` que instala automaticamente a versão exata do Go e embute atalhos rápidos.
+
+```bash
+# Instala a versão correta do Go no seu ambiente local isolado
+mise install
+
+# Compila o binário na pasta bin/ (o mesmo que go build...)
+mise run build
+
+# Para verificar outros atalhos disponíveis (como rodar testes)
+mise tasks
 ```
 
 ## Como rodar
