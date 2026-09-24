@@ -1,0 +1,29 @@
+# Binários
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Binários de teste (criados com 'go test -c')
+*.test
+
+# Arquivos de saída de coverage e profilers
+*.out
+*.prof
+
+# Arquivos do workspace do Go
+go.work
+go.work.sum
+
+# Diretórios de IDEs e editores de texto
+.idea/
+.vscode/
+*.swp
+*~
+
+# Arquivos locais e de dados gerados pela CLI
+*.jsonl
+dump.jsonl
+messages.jsonl
